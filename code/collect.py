@@ -1,26 +1,29 @@
 import internetarchive as ia
-import os
-from pathlib import Path
+import pathlib as pl
 
-volumes_list = range(40, 50)
+# get list of available volumes for publisher
 
-# download volume txts
+volumes_list = []
+for i in ia.search_items('creator:Chicago, Photoplay Magazine Publishing Company'):
+    volumes_list.append(i['identifier'])
+# print(volumes_list)
+
+# download txts
+
+print('Downloading...')
+for vol in volumes_list:
+    ia.download(f'{vol}', verbose=False, formats='DjVuTXT', destdir='material/raw')
+    print(f'{vol} downloaded')
+print('Download completed.')
+
+# clean by removing line breaks
+
+pl.Path('material/cleaned').mkdir(parents=True, exist_ok=True)
 
 for vol in volumes_list:
-    ia.download(f'photo{vol}chic', verbose=True, formats='DjVuTXT', destdir='material/raw')
-
-list_raw = list(os.listdir('material/raw'))
-print(list_raw)
-
-# clean them removing line breaks
-
-for vol_raw in list_raw:
-    Path('/material/cleaned').mkdir(parents=True, exist_ok=True)
-    # readdoc = open(f'material/raw/photo{vol}chic/photo{vol}chic_djvu.txt', 'r').read()
-    readdoc = open(f'material/raw/{vol_raw}/{vol_raw}_djvu.txt', 'r').read()
+    readdoc = open(f'material/raw/{vol}/{vol}_djvu.txt', 'r', encoding="utf8").read()
     r_newlines = readdoc.replace('\n', ' ')
-    # close('material/raw/photo40chic/photo40chic_djvu.txt', 'r')
-    with open(f'material/cleaned/{vol_raw}_cleaned', 'a') as f:
+    with open(f'material/cleaned/{vol}_cleaned', 'a', encoding="utf8") as f:
         print(r_newlines, file=f)
 
-print('Download and cleaning completed.')
+print('Cleaning completed.')
