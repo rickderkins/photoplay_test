@@ -6,14 +6,12 @@ import pathlib as pl
 volumes_list = []
 for i in ia.search_items('creator:Chicago, Photoplay Magazine Publishing Company'):
     volumes_list.append(i['identifier'])
-# print(volumes_list)
 
 # download txts
 
 print('Downloading...')
 for vol in volumes_list:
-    ia.download(f'{vol}', verbose=False, formats='DjVuTXT', destdir='material/raw')
-    print(f'{vol} downloaded')
+    ia.download(f'{vol}', verbose=True, formats='DjVuTXT', destdir='material/raw')
 print('Download completed.')
 
 # clean by removing line breaks

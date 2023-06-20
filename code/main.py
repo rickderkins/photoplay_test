@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # missing:
 # collect metadata: year, identifiers etc
-# rename files
+# rename files: year_vol_title
 # further clean data: prepositions, articles, punctuation, repetitions
-# create csv
+# create csv?
 # connect to gpt api
