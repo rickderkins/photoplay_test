@@ -10,3 +10,5 @@ import matplotlib.pyplot as plt
 # further clean data: prepositions, articles, punctuation, repetitions
 # create csv?
 # connect to gpt api
+
+import collect_hocr
