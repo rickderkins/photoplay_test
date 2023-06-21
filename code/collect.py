@@ -1,10 +1,12 @@
 import internetarchive as ia
 import pathlib as pl
 
-# get list of available volumes for publisher
+# get list of available volumes for publisher (to be changed)
+
+query = 'creator:Chicago, Photoplay Magazine Publishing Company'
 
 volumes_list = []
-for i in ia.search_items('creator:Chicago, Photoplay Magazine Publishing Company'):
+for i in ia.search_items(query):
     volumes_list.append(i['identifier'])
 
 # download txts
@@ -24,4 +26,5 @@ for vol in volumes_list:
     with open(f'material/cleaned/{vol}_cleaned', 'a', encoding="utf8") as f:
         print(r_newlines, file=f)
 
+# clear raw folder?
 print('Cleaning completed.')
