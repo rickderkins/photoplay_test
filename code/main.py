@@ -10,3 +10,4 @@ import matplotlib.pyplot as plt
 # connect to gpt api
 
 import collect_hocr
+import analysis

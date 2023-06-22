@@ -118,15 +118,19 @@ def tokenize_and_filter_text(text):
 
 print('Tokenizing and filtering text...')
 for file_name in pl.Path(cleaned_dir).glob('*.txt'):
-    with open(file_name, 'r', encoding='utf-8') as input_file:
-        text = input_file.read()
-        filtered_text = tokenize_and_filter_text(text)
+    filtered_file_path = pl.Path(filtered_dir) / file_name.name
 
-        filtered_file_path = pl.Path(filtered_dir) / file_name.name
-        with open(filtered_file_path, 'w', encoding='utf-8') as output_file:
-            output_file.write(filtered_text)
+    if filtered_file_path.exists():
+        print(f'Skipping tokenization and filtering for {file_name.name}. File already exists.')
+    else:
+        with open(file_name, 'r', encoding='utf-8') as input_file:
+            text = input_file.read()
+            filtered_text = tokenize_and_filter_text(text)
 
-        print(f'Filtered text file saved: {filtered_file_path}')
+            with open(filtered_file_path, 'w', encoding='utf-8') as output_file:
+                output_file.write(filtered_text)
+
+            print(f'Filtered text file saved: {filtered_file_path}')
 
 print('Tokenizing and filtering complete.')
 
