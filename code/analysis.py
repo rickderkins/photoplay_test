@@ -11,7 +11,11 @@ import numpy
 import openai
 
 import pandas as pd
-import collect_hocr
+# import collect_hocr
+
+cwd = os.getcwd()
+print(format(cwd))
+
 
 """
 if __name__ == "__main__":

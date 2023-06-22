@@ -24,7 +24,7 @@ for vol in volumes_list:
     metadata_list.append(metadata)
 
 # Save metadata to a JSON file
-with open('material/metadata.json', 'w') as json_file:
+with open('../material/metadata.json', 'w') as json_file:
     json.dump(metadata_list, json_file, indent=4)
 print('Metadata saved to metadata.json.')
 
@@ -37,7 +37,7 @@ print('Download completed.')
 
 # clean by removing line breaks
 
-pl.Path('material/cleaned').mkdir(parents=True, exist_ok=True)
+pl.Path('../material/cleaned').mkdir(parents=True, exist_ok=True)
 
 for vol in volumes_list:
     with open(f'material/raw/{vol}/{vol}_djvu.txt', 'r', encoding="utf8") as f:

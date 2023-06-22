@@ -7,6 +7,9 @@ import os
 import nltk
 import csv
 
+cwd = os.getcwd()
+print(format(cwd))
+
 # Set up NLTK
 nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
