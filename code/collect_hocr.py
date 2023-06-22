@@ -7,9 +7,6 @@ import os
 import nltk
 import csv
 
-cwd = os.getcwd()
-print(format(cwd))
-
 # Set up NLTK
 nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
@@ -31,7 +28,7 @@ query = 'creator:"Chicago, Photoplay Magazine Publishing Company"'
 #    volumes_list.append(item['identifier'])
 
 # TESTING: small sample, delete old files
-volumes_list = ['pho1314chic', 'photo42chic']
+volumes_list = ['pho1314chic', 'photo42chic', 'photoplay51chic', 'photoplayvolume222chic']
 for vol in volumes_list:
     #if os.path.exists(f'material/extracted/hocr_{vol}_extract.txt'):
         #os.remove(f'material/extracted/hocr_{vol}_extract.txt')

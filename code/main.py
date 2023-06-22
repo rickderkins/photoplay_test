@@ -10,9 +10,3 @@ import matplotlib.pyplot as plt
 # connect to gpt api
 
 import collect_hocr
-
-"""
-if __name__ == "__main__":
-    ans = collect_hocr.func(2, 3)
-    print(ans)
-"""

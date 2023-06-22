@@ -9,20 +9,7 @@ import csv
 import matplotlib
 import numpy
 import openai
-
 import pandas as pd
-# import collect_hocr
-
-cwd = os.getcwd()
-print(format(cwd))
-
-
-"""
-if __name__ == "__main__":
-    ans = collect_hocr.func(2, 3)
-    print(ans)
-"""
-
 
 # Read combined.csv into a dataframe
 combined_file_path = 'material/combined.csv'
