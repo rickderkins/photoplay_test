@@ -9,4 +9,5 @@ import matplotlib.pyplot as plt
 # create csv?
 # connect to gpt api
 
-# import collect_hocr
+import collect_hocr
+import analysis
